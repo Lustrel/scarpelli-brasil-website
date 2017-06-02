@@ -1,0 +1,28 @@
+{
+  "name": "scarpelli-brasil-website",
+  "version": "1.0.0",
+  "description": "Website created by Lustrel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lustrel/scarpelli-brasil-website.git"
+  },
+  "author": "Stanley Sathler <stanley@lustrel.com.br>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lustrel/scarpelli-brasil-website/issues"
+  },
+  "homepage": "https://github.com/Lustrel/scarpelli-brasil-website#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.4"
+  }
+}
