@@ -20,6 +20,7 @@ section#video {
 
 	.overlay {
 		@include full-page();
+		@include transition(opacity 1.5s);
 		background-color: rgba(0, 0, 0, 0.5);
 
 		&.invisible { opacity: 0; }
