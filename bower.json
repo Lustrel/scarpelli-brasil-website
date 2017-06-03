@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "css-reset": "^2.5.1"
+    "css-reset": "^2.5.1",
+    "jquery": "^3.2.1"
   }
 }

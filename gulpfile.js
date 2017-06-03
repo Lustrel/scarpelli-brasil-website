@@ -7,8 +7,6 @@
 	const jshint = require("gulp-jshint");
 	const sass = require("gulp-sass");
 	const concat = require("gulp-concat");
-	const uglify = require("gulp-uglify");
-	const rename = require("gulp-rename");
 	const minifyPipeline = require("pipeline-minify-css");
 
 	/*
@@ -41,7 +39,7 @@
 	gulp.task("sass:app", function()
 	{
 		return gulp
-			.src(sourceCssPath + "/*.scss")
+			.src(sourceCssPath + "/main.scss")
 			.pipe(sass())
 			.pipe(gulp.dest(distCssPath));
 	});
@@ -54,6 +52,14 @@
 		return gulp
 			.src(sourceJsPath + "/*.js")
 			.pipe(concat("main.js"))
+			.pipe(gulp.dest(distJsPath));
+	});
+
+	gulp.task("concat:vendor", function()
+	{
+		return gulp
+			.src([bowerPath + "/jquery/dist/jquery.js"])
+			.pipe(concat("vendor.js"))
 			.pipe(gulp.dest(distJsPath));
 	});
 
@@ -73,18 +79,6 @@
 	});
 
 	/*
-	 * Gulp Uglify
-	 */
-	gulp.task("uglify", function()
-	{
-		return gulp
-			.src(distJsPath + "/main.js")
-			.pipe(uglify())
-			.pipe(rename("main.min.js"))
-			.pipe(gulp.dest(distJsPath));
-	});
-
-	/*
 	 * Gulp Watch
 	 */
 	gulp.task("watch", function()
@@ -96,5 +90,7 @@
 	/*
 	 * Default task
 	 */
-	gulp.task("default", ["lint", "sass", "concat", "uglify"]);
+	gulp.task("vendor", ["concat-css:vendor", "concat:vendor"]);
+	gulp.task("app", ["lint:app", "sass:app", "concat:app"]);
+	gulp.task("default", ["vendor", "app"]);
 })();
