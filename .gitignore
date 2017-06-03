@@ -7,3 +7,6 @@ bower_components/
 
 # Dist file
 dist/
+
+# Mac OS X cache files
+**/.DS_Store
