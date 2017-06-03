@@ -6,14 +6,14 @@
 	{
 		var self = this;
 		this.$video = null;
-		this.$content = null;
+		this.$overlay = null;
 
 		(function initialize()
 		{
 			loadVideoFromDOM();
-			loadContentFromDOM();
+			loadOverlayFromDOM();
 
-			hideContentOnScreen();
+			hideOverlayOnScreen();
 			addVideoEndListener();
 		})();
 
@@ -27,33 +27,32 @@
 			self.$video = $video;
 		}
 
-		function loadContentFromDOM()
+		function loadOverlayFromDOM()
 		{
-			var $content = $("#video > .content");
+			var $overlay = $("#video > .overlay");
 
-			if( ! $content || $content.length < 1)
+			if( ! $overlay || $overlay.length < 1)
 				throw new Error("No content found.");
 
-			self.$content = $content;
+			self.$overlay = $overlay;
 		}
 
-		function hideContentOnScreen()
+		function hideOverlayOnScreen()
 		{
-			self.$content.css({
-				"opacity": 0
-			});
+			self.$overlay.addClass("invisible");
 		}
 
 		function addVideoEndListener()
 		{
-			self.$video.on("ended", showContentOnScreen);
+			self.$video.on("ended", showOverlayOnScreen);
 		}
 
-		function showContentOnScreen()
+		function showOverlayOnScreen()
 		{
-			self.$content.css({
-				"opacity": 1
-			});
+			self.$video.addClass("ended");
+
+			self.$overlay.removeClass("invisible");
+			self.$overlay.addClass("visible");
 		}
 	}
 

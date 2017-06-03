@@ -3,20 +3,33 @@ section#video {
 	position: absolute;
 	left: 0;
 	bottom: 0;
+	text-align: center;
 	top: 0;
 	right: 0;
 
 	video {
+		@include transform(translateX(-50%) translateY(-50%));
 		height: 100%;
 		left: 50%;
 		position: fixed;
 		top: 50%;
 		z-index: -1;
 
-		@include transform(translateX(-50%) translateY(-50%));
+		&.ended { opacity: 0.5; }
 	}
 
-	.content {
-		margin: 0 auto;
+	.overlay {
+		@include full-page();
+		background-color: rgba(0, 0, 0, 0.5);
+
+		&.invisible { opacity: 0; }
+		&.visible { opacity: 1; }
+	}
+
+	.content { 
+		display: inline-block;
+		margin-top: calc(100vh - 200px);
+
+		h1.logo { margin-bottom: 50px; }
 	}
 }

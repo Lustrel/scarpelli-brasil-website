@@ -1,0 +1,15 @@
+.button {
+	@include border-radius(22px);
+	@include box-shadow(0 0 10px rgba(0, 0, 0, 0.45));
+
+	background-color: $color-primary-normal;
+	border: none;
+	color: $color-content-text-normal;
+	display: inline-block;
+	font-size: 1.2em;
+	font-weight: 300;
+	height: 44px;
+	min-width: 260px;
+	padding: 0 10px;
+	text-align: center;
+}

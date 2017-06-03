@@ -88,7 +88,7 @@
 	 */
 	gulp.task("watch", function()
 	{
-		gulp.watch(sourceJsPath + "/*.js", ["lint:app", "concat:app", "uglify:app"]);
+		gulp.watch(sourceJsPath + "/*.js", ["lint:app", "concat:app"]);
 		gulp.watch(sourceCssPath + "/**/*.scss", ["sass:app"]);
 	});
 
