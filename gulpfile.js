@@ -7,6 +7,7 @@
 	const jshint = require("gulp-jshint");
 	const sass = require("gulp-sass");
 	const concat = require("gulp-concat");
+	const rename = require("gulp-rename");
 	const minifyPipeline = require("pipeline-minify-css");
 
 	/*
@@ -40,7 +41,8 @@
 	{
 		return gulp
 			.src(sourceCssPath + "/main.scss")
-			.pipe(sass())
+			.pipe(sass({outputStyle: "compressed"}))
+			.pipe(rename("main.min.css"))
 			.pipe(gulp.dest(distCssPath));
 	});
 
@@ -50,7 +52,10 @@
 	gulp.task("concat:app", function()
 	{
 		return gulp
-			.src(sourceJsPath + "/*.js")
+			.src([
+				sourceJsPath + "/home-effect.js",
+				sourceJsPath + "/app.js"
+			])
 			.pipe(concat("main.js"))
 			.pipe(gulp.dest(distJsPath));
 	});
@@ -83,8 +88,8 @@
 	 */
 	gulp.task("watch", function()
 	{
-		gulp.watch(sourceJsPath + "/*.js", ["lint", "concat", "uglify"]);
-		gulp.watch(sourceCssPath + "/*.scss", ["sass"]);
+		gulp.watch(sourceJsPath + "/*.js", ["lint:app", "concat:app", "uglify:app"]);
+		gulp.watch(sourceCssPath + "/**/*.scss", ["sass:app"]);
 	});
 
 	/*
