@@ -9,10 +9,13 @@
 	const concat = require("gulp-concat");
 	const uglify = require("gulp-uglify");
 	const rename = require("gulp-rename");
+	const minifyPipeline = require("pipeline-minify-css");
 
 	/*
 	 * Variables
 	 */
+	let bowerPath = "./bower_components";
+
 	let sourcePath = "./src";
 	let sourceJsPath = (sourcePath + "/js");
 	let sourceCssPath = (sourcePath + "/scss");
@@ -24,7 +27,7 @@
 	/*
 	 * Gulp Lint
 	 */
-	gulp.task("lint", function()
+	gulp.task("lint:app", function()
 	{
 		return gulp
 			.src(sourceJsPath + "/*.js")
@@ -35,7 +38,7 @@
 	/*
 	 * Gulp Sass
 	 */
-	gulp.task("sass", function()
+	gulp.task("sass:app", function()
 	{
 		return gulp
 			.src(sourceCssPath + "/*.scss")
@@ -46,12 +49,27 @@
 	/*
 	 * Gulp Concat
 	 */
-	gulp.task("concat", function()
+	gulp.task("concat:app", function()
 	{
 		return gulp
 			.src(sourceJsPath + "/*.js")
 			.pipe(concat("main.js"))
 			.pipe(gulp.dest(distJsPath));
+	});
+
+	/*
+	 * Gulp Concat CSS
+	 */
+	gulp.task("concat-css:vendor", function()
+	{
+		return gulp
+			.src(bowerPath + "/css-reset/reset.min.css")
+			.pipe(minifyPipeline.minifyCSS({
+				addSourceMaps: false,
+				concat: true,
+				concatFilename: "vendor.min.css"
+			}))
+			.pipe(gulp.dest(distCssPath));
 	});
 
 	/*

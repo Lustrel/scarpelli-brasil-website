@@ -1,0 +1,21 @@
+{
+  "name": "scarpelli-brasil-website",
+  "description": "Website created by Lustrel",
+  "main": "index.js",
+  "authors": [
+    "Stanley Sathler <stanley@lustrel.com.br>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Lustrel/scarpelli-brasil-website",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "css-reset": "^2.5.1"
+  }
+}
