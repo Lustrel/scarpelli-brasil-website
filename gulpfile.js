@@ -53,7 +53,7 @@
 	{
 		return gulp
 			.src([
-				sourceJsPath + "/home-effect.js",
+				sourceJsPath + "/video-page.js",
 				sourceJsPath + "/app.js"
 			])
 			.pipe(concat("main.js"))

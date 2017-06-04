@@ -8,6 +8,8 @@
 	top: 0;
 	width: 44px;
 
+	&.invisible { opacity: 0 }
+
 	.bar {
 		background-color: $color-content-text-normal;
 		display: block;

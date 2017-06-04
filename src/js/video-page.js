@@ -2,17 +2,20 @@
 {
 	"use strict";
 
-	function HomeEffect()
+	function VideoPage()
 	{
 		var self = this;
 		this.$video = null;
 		this.$overlay = null;
+		this.$menuIcon = null;
 
 		(function initialize()
 		{
 			loadVideoFromDOM();
 			loadOverlayFromDOM();
-
+			loadMenuIconFromDOM();
+		
+			hideMenuIconOnScreen();
 			hideOverlayOnScreen();
 			addVideoEndListener();
 		})();
@@ -37,6 +40,21 @@
 			self.$overlay = $overlay;
 		}
 
+		function loadMenuIconFromDOM()
+		{
+			var $menuIcon = $("#menu-icon");
+
+			if( ! $menuIcon || $menuIcon.length < 1)
+				throw new Error("No menu icon found.");
+
+			self.$menuIcon = $menuIcon;
+		}
+
+		function hideMenuIconOnScreen()
+		{
+			self.$menuIcon.addClass("invisible");
+		}
+
 		function hideOverlayOnScreen()
 		{
 			self.$overlay.addClass("invisible");
@@ -45,6 +63,11 @@
 		function addVideoEndListener()
 		{
 			self.$video.on("ended", showOverlayOnScreen);
+		}
+
+		function showMenuIconOnScreen()
+		{
+			self.$menuIcon.removeClass("invisible");
 		}
 
 		function showOverlayOnScreen()
@@ -57,5 +80,5 @@
 	}
 
 	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
-	window.ScarpelliBrasil.HomeEffect = HomeEffect;
+	window.ScarpelliBrasil.VideoPage = VideoPage;
 })();

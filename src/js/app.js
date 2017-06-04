@@ -1,6 +1,6 @@
 (function()
 {
-    "use strict";
+	"use strict";
 
-    (new ScarpelliBrasil.HomeEffect());
+	(new ScarpelliBrasil.VideoPage());
 })();
