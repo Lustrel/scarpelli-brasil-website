@@ -1,0 +1,19 @@
+.menu-icon {
+
+	background-color: $color-primary-normal;
+	height: 44px;
+	padding: 12px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 44px;
+
+	.bar {
+		background-color: $color-content-text-normal;
+		display: block;
+		height: 3px;
+		margin-bottom: 6px;
+		width: 100%;
+	}
+
+}
