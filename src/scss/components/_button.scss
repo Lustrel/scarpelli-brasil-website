@@ -5,6 +5,7 @@
 	background-color: $color-primary-normal;
 	border: none;
 	color: $color-content-text-normal;
+	cursor: pointer;
 	display: inline-block;
 	font-size: 1.2em;
 	font-weight: 300;
@@ -13,3 +14,5 @@
 	padding: 0 10px;
 	text-align: center;
 }
+
+a.button { line-height: 44px; }

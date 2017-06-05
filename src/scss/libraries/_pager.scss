@@ -1,0 +1,5 @@
+.pager-section.pager-fullscreen {
+	@include full-page();
+	background-image: url("../images/rio-de-janeiro-black.jpg");
+	background-size: cover;
+}

@@ -1,0 +1,24 @@
+.box-content {
+
+	background-color: $color-content-bg-normal;
+	color: $color-content-text-normal;
+	max-height: 95%;
+	padding: 35px;
+	overflow-y: auto;
+	width: 95%;
+
+	p {
+		line-height: 1.66em;
+		text-align: justify;
+		margin-bottom: 40px;
+	}
+
+	b { font-weight: 500; }
+
+	h3 { 
+		color: $color-primary-normal; 
+		font-size: 1.73em;
+		margin-bottom: 35px;
+	}
+	
+}

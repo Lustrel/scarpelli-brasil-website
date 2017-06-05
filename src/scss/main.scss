@@ -1,6 +1,11 @@
 @import "./config/globals";
 @import "./config/colors";
 @import "./tools/mixins";
+
 @import "./components/button";
 @import "./components/menu-icon";
+@import "./components/box-content";
+
+@import "./libraries/pager";
+
 @import "./pages/video";

@@ -1,4 +1,13 @@
+/**
+ * Pager is a little plugin which makes each section as a full page element.
+ * It was built using Vanilla-JS and will be converted to jQuery soon.
+ * 
+ * @author Stanley Sathler <stanley@lustrel.com.br>
+ */
+
 (function(){
+
+	"use strict";
 
 	function Pager()
 	{
@@ -94,6 +103,7 @@
 
 	}
 
-	window.Pager = Pager;
+	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
+	window.ScarpelliBrasil.Pager = Pager;
 
 })();

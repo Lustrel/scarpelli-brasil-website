@@ -54,6 +54,7 @@
 		return gulp
 			.src([
 				sourceJsPath + "/video-page.js",
+				sourceJsPath + "/pager.js",
 				sourceJsPath + "/app.js"
 			])
 			.pipe(concat("main.js"))

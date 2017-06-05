@@ -6,7 +6,8 @@ bower_components/
 **/.sass-cache
 
 # Dist file
-dist/
+dist/js
+dist/css
 
 # Mac OS X cache files
 **/.DS_Store
