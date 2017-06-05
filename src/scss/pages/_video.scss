@@ -1,5 +1,8 @@
 section#video {
 
+	/* Removes because background-image overrides video */
+	background-image: none;
+
 	position: absolute;
 	left: 0;
 	bottom: 0;
