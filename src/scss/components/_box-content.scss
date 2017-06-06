@@ -1,24 +1,37 @@
 .box-content {
 
 	background-color: $color-content-bg-normal;
-	color: $color-content-text-normal;
 	max-height: 100%;
-	padding: 35px;
-	overflow-y: auto;
+	position: relative;
 	width: 100%;
 
-	p {
-		line-height: 1.66em;
-		text-align: justify;
-		margin-bottom: 40px;
+	.content {
+		color: $color-content-text-normal;
+		height: 100%;
+		overflow-y: auto;
+		padding: 35px;
+
+		p {
+			line-height: 1.66em;
+			text-align: justify;
+			margin-bottom: 40px;
+		}
+
+		b { font-weight: 500; }
+
+		h3 { 
+			color: $color-primary-normal; 
+			font-size: 1.73em;
+			margin-bottom: 35px;
+		}
 	}
 
-	b { font-weight: 500; }
-
-	h3 { 
-		color: $color-primary-normal; 
-		font-size: 1.73em;
-		margin-bottom: 35px;
+	.call-to-action {
+		bottom: -24px;
+		left: 50%;
+		position: absolute;
+	
+		@include transform( translate(-50%) );
 	}
 	
 }
