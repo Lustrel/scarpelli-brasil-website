@@ -17,14 +17,12 @@ section#video {
 		position: fixed;
 		top: 50%;
 		z-index: -1;
-
-		&.ended { opacity: 0.5; }
 	}
 
 	.overlay {
 		@include full-page();
 		@include transition(opacity 1.5s);
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(0, 0, 0, 0.8);
 
 		&.invisible { opacity: 0; }
 		&.visible { opacity: 1; }
