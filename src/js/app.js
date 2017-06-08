@@ -4,4 +4,6 @@
 
 	(new ScarpelliBrasil.VideoPage());
 	(new ScarpelliBrasil.Pager());
+
+	
 })();

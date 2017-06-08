@@ -8,16 +8,19 @@
 		this.$video = null;
 		this.$overlay = null;
 		this.$menuIcon = null;
+		this.$button = null;
 
 		(function initialize()
 		{
 			loadVideoFromDOM();
 			loadOverlayFromDOM();
 			loadMenuIconFromDOM();
+			loadButtonFromDOM();
 		
 			hideMenuIconOnScreen();
 			hideOverlayOnScreen();
 			addVideoEndListener();
+			addButtonListener();
 		})();
 
 		function loadVideoFromDOM()
@@ -50,6 +53,16 @@
 			self.$menuIcon = $menuIcon;
 		}
 
+		function loadButtonFromDOM()
+		{
+			var $button = $("#video .meet");
+
+			if( ! $button || $button.length < 1)
+				throw new Error("No button found.");
+
+			self.$button = $button;
+		}
+
 		function hideMenuIconOnScreen()
 		{
 			self.$menuIcon.addClass("invisible");
@@ -63,6 +76,13 @@
 		function addVideoEndListener()
 		{
 			self.$video.on("ended", showOverlayOnScreen);
+		}
+
+		function addButtonListener()
+		{
+			self.$button.click(function(){
+				localStorage.setItem("isVideoAlreadyWatched", "true");
+			});
 		}
 
 		function showMenuIconOnScreen()

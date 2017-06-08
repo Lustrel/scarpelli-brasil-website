@@ -73,7 +73,14 @@
 			var url = window.location.hash;
 
 			if(!url || url.length < 1)
-				return setActiveSectionById(sectionsElements[0].id);
+			{
+				var isVideoAlreadyWatched = JSON.parse(localStorage.getItem("isVideoAlreadyWatched"));
+				if(isVideoAlreadyWatched)
+					return setActiveSectionById(sectionsElements[1].id);
+				else
+					return setActiveSectionById(sectionsElements[0].id);
+			}
+				
 
 			url = url.substring(1);
 			return setActiveSectionById(url);
@@ -100,7 +107,6 @@
 				setActiveSectionById(targetSectionId);
 			});
 		}
-
 	}
 
 	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
