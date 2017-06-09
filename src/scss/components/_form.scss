@@ -1,0 +1,24 @@
+.form {
+	
+	.row {
+		margin-bottom: 10px;
+	}
+
+	label {
+		display: inline-block;
+		width: 100%;
+	}
+
+	input,
+	textarea {
+		padding: 10px;
+		width: 100%;
+
+		@include border-radius(18px);
+	}
+
+	input {
+		height: 36px;
+	}
+
+}

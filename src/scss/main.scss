@@ -2,10 +2,12 @@
 @import "./config/colors";
 @import "./tools/mixins";
 
+@import "./components/container";
 @import "./components/header";
 @import "./components/sidebar";
 @import "./components/button";
 @import "./components/box-content";
+@import "./components/form";
 
 @import "./libraries/pager";
 

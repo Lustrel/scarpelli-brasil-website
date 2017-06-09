@@ -2,11 +2,20 @@
 	@include box-shadow(0 0 5px rgba(0, 0, 0, .45));
 
 	background-color: $color-content-bg-normal;
+	display: inline-block;
 	max-height: 100%;
-	max-width: 800px;
-	margin: 0 auto;
 	position: relative;
+	vertical-align: top;
 	width: 100%;
+
+	&.half {
+		margin-right: 25px;
+		width: calc(50% - 25px);
+	}
+
+	&.half:last-child {
+		margin-right: 0;
+	}
 
 	.content {
 		color: $color-content-text-normal;
