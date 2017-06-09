@@ -1,5 +1,17 @@
 section#contato {
 
-	
+	&.pager-section.pager-fullscreen {
+		height: 100vh;
+	}
+
+	.right span {
+		display: block;
+		line-height: 1.53em;
+	}
+
+	.right span.name {
+		font-size: 1.2em;
+		font-weight: 500;
+	}
 
 }
