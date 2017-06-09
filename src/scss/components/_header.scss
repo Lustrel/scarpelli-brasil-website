@@ -1,0 +1,29 @@
+.header {
+	position: relative;
+	z-index: 1;
+
+	.logo {
+		display: inline-block;
+		padding: 15px;
+
+		img { height: 50px; }
+	}
+
+	.menu-icon {
+		background-color: $color-primary-normal;
+		height: 44px;
+		padding: 12px;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 44px;
+
+		.bar {
+			background-color: $color-button-text-normal;
+			display: block;
+			height: 3px;
+			margin-bottom: 6px;
+			width: 100%;
+		}
+	}
+}
