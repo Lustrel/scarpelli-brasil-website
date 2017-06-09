@@ -2,7 +2,7 @@
 
 	"use strict";
 
-	function CollapsibleMenu(menuIconId, menuPanelId)
+	function Sidebar(menuIconId, menuPanelId)
 	{
 		var self = this;
 		self._menuIconElement;
@@ -39,7 +39,7 @@
 		function makeMenuPanelInvisible()
 		{
 			var panelWidth = self._menuPanelElement.offsetWidth;
-			self._menuPanelElement.style.marginLeft = (panelWidth * -1) + "px";
+			self._menuPanelElement.style.marginRight = (panelWidth * -1) + "px";
 
 			removeTransparentBackground();
 			removeElementClass(self._menuPanelElement, "open");
@@ -47,7 +47,7 @@
 
 		function makeMenuPanelVisible()
 		{
-			self._menuPanelElement.style.marginLeft = 0;
+			self._menuPanelElement.style.marginRight = 0;
 			addTransparentBackground();
 			addElementClass(self._menuPanelElement, "open");
 		}
@@ -62,7 +62,7 @@
 		{
 			var bodyElement = document.getElementsByTagName("body")[0];
 			self._overlayElement = document.createElement("section");
-			self._overlayElement.className = "collapsible-menu-overlay";
+			self._overlayElement.className = "sidebar-overlay";
 			bodyElement.appendChild(self._overlayElement);
 		}
 
@@ -161,5 +161,6 @@
 		}
 	}
 
-	window.CollapsibleMenu = CollapsibleMenu;
+	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
+	window.ScarpelliBrasil.Sidebar = Sidebar;
 })();

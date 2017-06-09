@@ -1,0 +1,40 @@
+.sidebar {
+	background-color: rgba(0, 0, 0, 0.95);
+	bottom: 0;
+	cursor: pointer;
+	right: 0;
+	margin-right: -230px;
+	position: absolute;
+	top: 0;
+	width: 230px;
+	z-index: 4;
+
+	@include transition(all .3s);
+
+	ul {
+		margin-top: 60px;
+		overflow: hidden;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	a {
+		color: white;
+		text-decoration: none;
+	}
+
+	li {
+		display: block;
+		padding: 10px 20px;
+	}
+}
+
+.sidebar-overlay {
+	background-color: rgba(0, 0, 0, .50);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+}

@@ -55,6 +55,7 @@
 			.src([
 				sourceJsPath + "/home-video.js",
 				sourceJsPath + "/pager.js",
+				sourceJsPath + "/sidebar.js",
 				sourceJsPath + "/app.js"
 			])
 			.pipe(concat("main.js"))
