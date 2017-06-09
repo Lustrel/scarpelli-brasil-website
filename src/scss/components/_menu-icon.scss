@@ -7,11 +7,12 @@
 	right: 0;
 	top: 0;
 	width: 44px;
+	z-index: 1;
 
 	&.invisible { opacity: 0 }
 
 	.bar {
-		background-color: $color-content-text-normal;
+		background-color: $color-button-text-normal;
 		display: block;
 		height: 3px;
 		margin-bottom: 6px;

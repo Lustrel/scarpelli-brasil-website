@@ -7,15 +7,12 @@
 		var self = this;
 		this.$video = null;
 		this.$overlay = null;
-		this.$menuIcon = null;
 
 		(function initialize()
 		{
 			loadVideoFromDOM();
 			loadOverlayFromDOM();
-			loadMenuIconFromDOM();
 		
-			hideMenuIconOnScreen();
 			hideOverlayOnScreen();
 			addVideoEndListener();
 		})();
@@ -40,21 +37,6 @@
 			self.$overlay = $overlay;
 		}
 
-		function loadMenuIconFromDOM()
-		{
-			var $menuIcon = $("#menu-icon");
-
-			if( ! $menuIcon || $menuIcon.length < 1)
-				throw new Error("No menu icon found.");
-
-			self.$menuIcon = $menuIcon;
-		}
-
-		function hideMenuIconOnScreen()
-		{
-			self.$menuIcon.addClass("invisible");
-		}
-
 		function hideOverlayOnScreen()
 		{
 			self.$overlay.addClass("invisible");
@@ -66,11 +48,6 @@
 				showOverlayOnScreen();
 				setVideoAsWatched();
 			});
-		}
-
-		function showMenuIconOnScreen()
-		{
-			self.$menuIcon.removeClass("invisible");
 		}
 
 		function showOverlayOnScreen()
@@ -91,9 +68,16 @@
 			var video = self.$video.get(0);
 			video.play();
 		}
+
+		function isWatched()
+		{
+			var isWatched = localStorage.getItem("isVideoAlreadyWatched");
+			return JSON.parse( isWatched );
+		}
 	
 		return {
-			play: play
+			play: play,
+			isWatched: isWatched
 		};
 	}
 

@@ -89,24 +89,19 @@
 		{
 			var url = window.location.hash;
 
-			if(!url || url.length < 1)
-				//return setActiveSectionById(sectionsElements[0].id);
+			if( ! url)
 				return false;
 
-			url = url.substring(1);
+			url = url.substring(1); // Remove # (first char)
 			return setActiveSectionById(url);
 		}
 
 		function setActiveSectionById(sectionId)
 		{
-			triggerBeforePageChange({id: sectionId});
-
 			sectionsElements.forEach(function(element){
 				if(element.id === sectionId) showElement(element.element);
 				else hideElement(element.element);
 			});
-
-			triggerAfterPageChange({id: sectionId});
 		}
 
 		function showElement(element)
@@ -123,29 +118,7 @@
 			});
 		}
 
-		function triggerBeforePageChange(data)
-		{
-			var events = self.events;
-
-			if( ! events.beforeChange )
-				events.beforeChange = new CustomEvent(ON_BEFORE_CHANGE);
-
-			document.dispatchEvent(events.beforeChange);
-		}
-
-		function triggerAfterPageChange(data)
-		{
-			var events = self.events;
-
-			if( ! events.afterChange )
-				events.afterChange = new CustomEvent(ON_AFTER_CHANGE);
-
-			document.dispatchEvent(events.afterChange);
-		}
-
 		return {
-			triggerBeforePageChange: triggerBeforePageChange,
-			triggerAfterPageChange: triggerAfterPageChange,
 			setActiveSectionById: setActiveSectionById
 		};
 	}
