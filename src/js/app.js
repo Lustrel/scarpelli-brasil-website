@@ -5,17 +5,19 @@
 	var HomeVideo = (new ScarpelliBrasil.VideoPage());
 	var Pager = (new ScarpelliBrasil.Pager());
 
-	/*
-
 	(function initialize()
 	{
 		if(isHomeVideoWatched()){
-			Pager.setInitialPageById("quem-somos");
+			Pager.setActiveSectionById("quem-somos");
 		} else {
-			Pager.setInitialPageById("video");
-			HomeVideo.start();
+			Pager.setActiveSectionById("video");
+			HomeVideo.play();
 		}
 	})();
 
-	*/
+	function isHomeVideoWatched()
+	{
+		var isWatched = localStorage.getItem("isVideoAlreadyWatched");
+		return JSON.parse(isWatched);
+	}
 })();

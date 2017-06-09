@@ -8,19 +8,16 @@
 		this.$video = null;
 		this.$overlay = null;
 		this.$menuIcon = null;
-		this.$button = null;
 
 		(function initialize()
 		{
 			loadVideoFromDOM();
 			loadOverlayFromDOM();
 			loadMenuIconFromDOM();
-			loadButtonFromDOM();
 		
 			hideMenuIconOnScreen();
 			hideOverlayOnScreen();
 			addVideoEndListener();
-			addButtonListener();
 		})();
 
 		function loadVideoFromDOM()
@@ -53,16 +50,6 @@
 			self.$menuIcon = $menuIcon;
 		}
 
-		function loadButtonFromDOM()
-		{
-			var $button = $("#video .meet");
-
-			if( ! $button || $button.length < 1)
-				throw new Error("No button found.");
-
-			self.$button = $button;
-		}
-
 		function hideMenuIconOnScreen()
 		{
 			self.$menuIcon.addClass("invisible");
@@ -75,13 +62,9 @@
 
 		function addVideoEndListener()
 		{
-			self.$video.on("ended", showOverlayOnScreen);
-		}
-
-		function addButtonListener()
-		{
-			self.$button.click(function(){
-				localStorage.setItem("isVideoAlreadyWatched", "true");
+			self.$video.on("ended", function(){
+				showOverlayOnScreen();
+				setVideoAsWatched();
 			});
 		}
 
@@ -97,6 +80,21 @@
 			self.$overlay.removeClass("invisible");
 			self.$overlay.addClass("visible");
 		}
+
+		function setVideoAsWatched()
+		{
+			localStorage.setItem("isVideoAlreadyWatched", "true");
+		}
+
+		function play()
+		{
+			var video = self.$video.get(0);
+			video.play();
+		}
+	
+		return {
+			play: play
+		};
 	}
 
 	window.ScarpelliBrasil = window.ScarpelliBrasil || {};

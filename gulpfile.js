@@ -53,7 +53,7 @@
 	{
 		return gulp
 			.src([
-				sourceJsPath + "/video-page.js",
+				sourceJsPath + "/home-video.js",
 				sourceJsPath + "/pager.js",
 				sourceJsPath + "/app.js"
 			])

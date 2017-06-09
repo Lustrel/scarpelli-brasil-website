@@ -12,6 +12,21 @@
 	function Pager()
 	{
 		var sectionsElements = [];
+		var self = this;
+
+		/*
+		 * Events names
+		 */
+		var ON_BEFORE_CHANGE = "Pager.onBeforeChange";
+		var ON_AFTER_CHANGE = "Pager.onAfterChange";
+
+		/*
+		 * Events instances
+		 */
+		this.events = {
+			beforeChange: null,
+			afterChange: null
+		};
 
 		(function initialize(){
 			mapSectionsElements();
@@ -24,7 +39,9 @@
 		function mapSectionsElements()
 		{
 			var sections = document.getElementsByClassName("pager-section");
-			if(!sections || sections.length < 1) throw new Error("You must have at least one pager-section element for use PagerJS");
+
+			if( ! sections || sections.length < 1) 
+				throw new Error("You must have at least one pager-section element for use PagerJS");
 
 			for(var i = 0; i < sections.length; i++)
 			{
@@ -73,14 +90,8 @@
 			var url = window.location.hash;
 
 			if(!url || url.length < 1)
-			{
-				var isVideoAlreadyWatched = JSON.parse(localStorage.getItem("isVideoAlreadyWatched"));
-				if(isVideoAlreadyWatched)
-					return setActiveSectionById(sectionsElements[1].id);
-				else
-					return setActiveSectionById(sectionsElements[0].id);
-			}
-				
+				//return setActiveSectionById(sectionsElements[0].id);
+				return false;
 
 			url = url.substring(1);
 			return setActiveSectionById(url);
@@ -88,10 +99,14 @@
 
 		function setActiveSectionById(sectionId)
 		{
+			triggerBeforePageChange({id: sectionId});
+
 			sectionsElements.forEach(function(element){
 				if(element.id === sectionId) showElement(element.element);
 				else hideElement(element.element);
 			});
+
+			triggerAfterPageChange({id: sectionId});
 		}
 
 		function showElement(element)
@@ -107,6 +122,32 @@
 				setActiveSectionById(targetSectionId);
 			});
 		}
+
+		function triggerBeforePageChange(data)
+		{
+			var events = self.events;
+
+			if( ! events.beforeChange )
+				events.beforeChange = new CustomEvent(ON_BEFORE_CHANGE);
+
+			document.dispatchEvent(events.beforeChange);
+		}
+
+		function triggerAfterPageChange(data)
+		{
+			var events = self.events;
+
+			if( ! events.afterChange )
+				events.afterChange = new CustomEvent(ON_AFTER_CHANGE);
+
+			document.dispatchEvent(events.afterChange);
+		}
+
+		return {
+			triggerBeforePageChange: triggerBeforePageChange,
+			triggerAfterPageChange: triggerAfterPageChange,
+			setActiveSectionById: setActiveSectionById
+		};
 	}
 
 	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
