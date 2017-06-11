@@ -14,14 +14,16 @@
 			loadElementsFromDOM(menuIconId, menuPanelId);
 			makeMenuPanelInvisible();
 			createMenuIconListener();
-			//createCloseMenuListener();
 			createMenuItemListener();
 		})();
 
 		function validateConstructorParameters(menuIconId, menuPanelId)
 		{
-			if(!menuIconId) throw new Error("You must specify the menu icon element id");
-			if(!menuPanelId) throw new Error("You must specify the menu panel element id");
+			if(!menuIconId) 
+				throw new Error("You must specify the menu icon element id");
+
+			if(!menuPanelId) 
+				throw new Error("You must specify the menu panel element id");
 		}
 
 		function loadElementsFromDOM(menuIconId, menuPanelId)
