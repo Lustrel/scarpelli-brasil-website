@@ -1,24 +1,28 @@
 (function(){
 	"use strict";
 
-	function MenuComponent(menuButtonSelector, menuOverlaySelector)
+	function MenuComponent(menuButtonSelector, menuOverlaySelector, menuCloseSelector)
 	{
 		var self = this;
 		this.$menuButton = null;
 		this.$menuOverlay = null;
+		this.$menuClose = null;
 
 		(function initialize()
 		{
 			if( ! menuButtonSelector || ! menuOverlaySelector)
 				throw new Error("Constructor parameters are invalid");
 
-			this.$menuButton = loadMenuButton();
-			this.$menuOverlay = loadMenuOverlay();
+			self.$menuButton = loadMenuButton();
+			self.$menuOverlay = loadMenuOverlay();
+			self.$menuClose = loadMenuClose();
 
-			this.$menuButton.click(function(){
-				$menuOverlay.fadeIn("fast", function(){
-					console.log("menu overlay is now being shown");
-				});
+			self.$menuButton.click(function(){
+				self.$menuOverlay.fadeIn(500);
+			});
+
+			self.$menuClose.click(function(){
+				self.$menuOverlay.fadeOut(500);
 			});
 		})();
 
@@ -39,5 +43,17 @@
 
 			return $menuOverlay;
 		}
+
+		function loadMenuClose()
+		{
+			var $menuClose = $(menuCloseSelector);
+			if( ! $menuClose || $menuClose.length < 1 )
+				throw new Error("Given menu close selector doesn't match any element in DOM.");
+
+			return $menuClose;
+		}
 	}
+
+	window.ScarpelliBrasil = window.ScarpelliBrasil || {};
+	window.ScarpelliBrasil.Menu = MenuComponent;
 })();
