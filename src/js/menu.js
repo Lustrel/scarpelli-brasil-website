@@ -10,19 +10,18 @@
 
 		(function initialize()
 		{
-			if( ! menuButtonSelector || ! menuOverlaySelector)
+			if( ! menuButtonSelector || ! menuOverlaySelector || ! menuCloseSelector)
 				throw new Error("Constructor parameters are invalid");
 
 			self.$menuButton = loadMenuButton();
 			self.$menuOverlay = loadMenuOverlay();
 			self.$menuClose = loadMenuClose();
 
-			self.$menuButton.click(function(){
-				self.$menuOverlay.fadeIn(500);
-			});
+			self.$menuButton.click(showMenu);
+			self.$menuClose.click(hideMenu);
 
-			self.$menuClose.click(function(){
-				self.$menuOverlay.fadeOut(500);
+			self.$menuOverlay.find("li").each(function(){
+				$(this).click(hideMenu);
 			});
 		})();
 
@@ -51,6 +50,16 @@
 				throw new Error("Given menu close selector doesn't match any element in DOM.");
 
 			return $menuClose;
+		}
+
+		function showMenu()
+		{
+			self.$menuOverlay.fadeIn(500);
+		}
+
+		function hideMenu()
+		{
+			self.$menuOverlay.fadeOut(500);
 		}
 	}
 
