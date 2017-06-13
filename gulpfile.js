@@ -54,6 +54,7 @@
 		return gulp
 			.src([
 				sourceJsPath + "/home-video.js",
+				sourceJsPath + "/box-content.js",
 				sourceJsPath + "/pager.js",
 				sourceJsPath + "/menu.js",
 				sourceJsPath + "/app.js"

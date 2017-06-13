@@ -4,8 +4,8 @@
 
 	var HomeVideo = (new ScarpelliBrasil.VideoPage());
 	var Pager = (new ScarpelliBrasil.Pager());
-	//var Sidebar = (new ScarpelliBrasil.Sidebar("menu-icon", "side-menu"));
 	var Menu = (new ScarpelliBrasil.Menu("#menu-icon", "#menu", "#menu-close"));
+	var BoxContent = (new ScarpelliBrasil.BoxContent());
 
 	if( HomeVideo.isWatched() ){
 		var sectionId = sectionIdFromURL();
