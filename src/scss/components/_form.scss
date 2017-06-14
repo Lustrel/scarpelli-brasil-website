@@ -18,6 +18,11 @@
 		width: 100%;
 
 		@include border-radius(18px);
+
+		&:focus {
+			@include box-shadow(0 0 5px $color-primary-normal);
+			outline: none;
+		}
 	}
 
 	input {

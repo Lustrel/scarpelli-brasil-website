@@ -58,7 +58,8 @@
 
 				// jQuery's .height() method excludes padding/margin
 				// jQuery's .innerHeight() method includes padding but no border
-				$boxContent.innerHeight( $pagerSection.height() - marginBottom );
+				//$boxContent.innerHeight( $pagerSection.height() - marginBottom );
+				$boxContent.css("max-height", ($pagerSection.height() - marginBottom) + "px");
 			});
 		}
 
