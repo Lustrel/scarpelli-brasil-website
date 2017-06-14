@@ -19,6 +19,7 @@
 		(function initialize(){
 			self.$pagerSections = loadSections();
 			resizeBoxesContent(self.$pagerSections);
+			alignCallToAction(self.$pagerSections);
 
 			$(window).resize(function(){
 				resizeBoxesContent(self.$pagerSections);
@@ -50,6 +51,27 @@
 				// jQuery's .height() method excludes padding/margin
 				// jQuery's .innerHeight() method includes padding but no border
 				$boxContent.innerHeight( $pagerSection.height() - marginBottom );
+			});
+		}
+
+		function alignCallToAction($pagerSections)
+		{
+			$pagerSections.each(function()
+			{
+				var $section = $(this);
+				var $button = $section.find(".call-to-action");
+				if( ! $button)
+					return false;
+					
+				var targetSelector = $button.attr("data-target");
+				var $target = $(targetSelector);
+
+				var targetBottomY = ($target.position().top + $target.outerHeight());
+				var targetMiddleX = ($target.position().left + ($target.outerWidth / 2));
+				var buttonHeight = button.outerHeight();
+				var buttonWidth = button.outerWidth();
+				var buttonY = (targetBottomY - buttonHeight / 2);
+				var buttonX = (targetMiddleX - buttonWidth / 2);
 			});
 		}
 	}
