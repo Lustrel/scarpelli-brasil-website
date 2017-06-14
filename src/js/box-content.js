@@ -60,9 +60,9 @@
 			{
 				var $section = $(this);
 				var $button = $section.find(".call-to-action");
-				if( ! $button)
+				if( ! $button || $button.length < 1 )
 					return false;
-					
+
 				var targetSelector = $button.attr("data-target");
 				var $target = $(targetSelector);
 
