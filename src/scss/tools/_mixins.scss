@@ -29,3 +29,7 @@
 	-moz-transition: $value;
 	transition: $value;
 }
+
+@mixin background-gradient($from, $startColor, $endColor){
+	background: -webkit-linear-gradient($from, $startColor, $endColor);
+}

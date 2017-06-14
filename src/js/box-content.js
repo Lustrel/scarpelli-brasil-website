@@ -48,7 +48,7 @@
 		{
 			$pagerSections.each(function(){
 				var $pagerSection = $(this);
-				var $boxContent = $pagerSection.find(".box-content");
+				var $boxContent = $pagerSection.find(".box-content:not(.no-resize)");
 
 				var marginBottom = 40;
 

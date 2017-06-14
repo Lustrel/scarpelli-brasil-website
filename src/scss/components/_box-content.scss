@@ -25,6 +25,12 @@
 		margin-bottom: 35px;
 	}
 
+	&.half {
+		margin-bottom: 52px;
+
+		&:last-child { margin-bottom: 0; }
+	}
+
 	.call-to-action {
 		bottom: -24px;
 		left: 50%;
