@@ -18,11 +18,15 @@
 
 		(function initialize(){
 			self.$pagerSections = loadSections();
-			resizeBoxesContent(self.$pagerSections);
-			alignCallToAction(self.$pagerSections);
+
+			$(document).ready(function(){
+				resizeBoxesContent(self.$pagerSections);
+				alignCallToAction(self.$pagerSections);
+			});
 
 			$(window).resize(function(){
 				resizeBoxesContent(self.$pagerSections);
+				alignCallToAction(self.$pagerSections);
 			});
 		})();
 
@@ -61,17 +65,22 @@
 				var $section = $(this);
 				var $button = $section.find(".call-to-action");
 				if( ! $button || $button.length < 1 )
-					return false;
+					return;
 
 				var targetSelector = $button.attr("data-target");
 				var $target = $(targetSelector);
 
+				if( ! $target || $target.length < 1 )
+					return;
+
 				var targetBottomY = ($target.position().top + $target.outerHeight());
-				var targetMiddleX = ($target.position().left + ($target.outerWidth / 2));
-				var buttonHeight = button.outerHeight();
-				var buttonWidth = button.outerWidth();
+				var targetMiddleX = ($target.position().left + ($target.outerWidth() / 2));
+				var buttonHeight = $button.outerHeight();
+				var buttonWidth = $button.outerWidth();
 				var buttonY = (targetBottomY - buttonHeight / 2);
 				var buttonX = (targetMiddleX - buttonWidth / 2);
+
+				$button.css({ left: buttonX + "px", top: buttonY + "px", position: "absolute" });
 			});
 		}
 	}
