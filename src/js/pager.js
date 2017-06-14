@@ -102,6 +102,8 @@
 				if(element.id === sectionId) showElement(element.element);
 				else hideElement(element.element);
 			});
+
+			$(document).trigger("Pager:onAfterPageChange");
 		}
 
 		function showElement(element)

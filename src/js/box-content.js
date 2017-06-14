@@ -28,6 +28,10 @@
 				resizeBoxesContent(self.$pagerSections);
 				alignCallToAction(self.$pagerSections);
 			});
+
+			$(document).on("Pager:onAfterPageChange", function(){
+				alignCallToAction(self.$pagerSections);
+			});
 		})();
 
 		function loadSections()
