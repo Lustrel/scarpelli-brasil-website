@@ -6,6 +6,7 @@
 	var Pager = (new ScarpelliBrasil.Pager());
 	var Menu = (new ScarpelliBrasil.Menu("#menu-icon", "#menu", "#menu-close"));
 	var BoxContent = (new ScarpelliBrasil.BoxContent());
+	var ContactForm = (new ScarpelliBrasil.ContactForm("#form-contact", "#form-contact-submit"));
 
 	if( HomeVideo.isWatched() ){
 		var sectionId = sectionIdFromURL();

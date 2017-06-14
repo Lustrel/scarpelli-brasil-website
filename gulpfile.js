@@ -55,6 +55,7 @@
 			.src([
 				sourceJsPath + "/home-video.js",
 				sourceJsPath + "/box-content.js",
+				sourceJsPath + "/contact-form.js",
 				sourceJsPath + "/pager.js",
 				sourceJsPath + "/menu.js",
 				sourceJsPath + "/app.js"

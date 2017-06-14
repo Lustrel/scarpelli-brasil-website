@@ -14,4 +14,8 @@ section#contato {
 		font-weight: 500;
 	}
 
+	.button.sending {
+		background-color: $color-button-bg-disabled;
+	}
+
 }
